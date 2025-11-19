@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+<script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+<script src="function_3.js"></script>
+<link href="../index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- topbar d-flex align-items-centernavbar-expand-sm -->
+    <!-- <nav class="topbar orange shadow-sm navbar-dark fixed-top align-items-center navbar navbar-expand"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark orange shadow-sm fixed-top">
+            <div class="container-fluid">	<a class="navbar-brand" href="#"><img src="../img/icon.png" class="rounded-circle img-fluid"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="nav-link active highlight" aria-current="page" href="restaurant.html">
+                            <span class="material-symbols-outlined">
+                                restaurant_menu
+                            </span>Manage Menu </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight" href="order_manage.html">
+                            <span class="material-symbols-outlined">
+                                forward
+                            </span>
+                            Manage Orders
+                            <span class="badge bg-danger me-1 bg-opacity-75">22</span></a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight" href="pendingError.html">
+                            <span class="material-symbols-outlined">
+                                contact_support
+                            </span>
+                            Handle Queries
+                            <span class="badge bg-danger me-1 bg-opacity-75">4</span></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-dark me-2 radius-30 px-4 highlight">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        
+    <div class="container">
+        <div class="wrapper border-1 rounded-1 bg-light p-3 border-dark">
+            <div class="btn-list d-flex justify-content-end mt-0 mb-2">
+                <a href="set_detail.html"><div class="btn btn-outline-danger">Add Set</div></a>
+                <a href="item_detail.html"><div class="btn btn-danger ms-3">Add Menu Item</div></a>
+            </div>
+            <table id="menu" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>menu item</th>
+                        <th>image</th>
+                        <th>price</th>
+                        <th>prepare time</th>
+                        <th>status</th>
+                        <th>Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#1</span>Life Coffee
+                                <span class="float-end"></span>
+                            </div>
+                        </td>
+                        <td><img src="../img/coffee.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$30</span></td>
+                        <td>20 min</td>
+                        <td>
+                            <select class="form-select form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#2</span>So Sweet Cake with Drink
+                                <span class="float-end bg-warning rounded-3 p-1 ms-4 shadow-sm text-black-50">Set</span>
+                            </div>
+                        </td>
+                        <td><img src="../img/cake.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$55</span></td>
+                        <td>40 min</td>
+                        <td>
+                            <select class="form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#3</span>Milk Tea with Pearl
+                            </div>
+                        </td>
+                        <td><img src="../img/Milk Tea with Pearl.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$27</span></td>
+                        <td>25 min</td>
+                        <td>
+                            <select class="form-select form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#4</span>Nice Breakfast
+                                <span class="float-end bg-warning rounded-3 p-1 ms-4 shadow-sm text-black-50">Set</span>
+                            </div>
+                        </td>
+                        <td><img src="../img/breakfast.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$35</span></td>
+                        <td>35 min</td>
+                        <td>
+                            <select class="form-select form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#5</span>Good Drink
+                            </div>
+                        </td>
+                        <td><img src="../img/drink.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$20</span></td>
+                        <td>15 min</td>
+                        <td>
+                            <select class="form-select form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#6</span>Fast food Burger
+                                <span class="float-end bg-warning rounded-3 p-1 ms-4 shadow-sm text-black-50">Set</span>
+                            </div>
+                        </td>
+                        <td><img src="../img/fastFood.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$35</span></td>
+                        <td>20 min</td>
+                        <td>
+                            <select class="form-select form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <div class="clearfix">
+                                <span class="text-secondary small-text me-2 float-start">#7</span>So Sweet Cupcake
+                                <span class="float-end bg-warning rounded-3 p-1 ms-4 shadow-sm text-black-50">Set</span>
+                            </div>
+                        </td>
+                        <td><img src="../img/sweet.jpg" class="rounded-1"></td>
+                        <td><span class="border-1 bg-primary p-1 rounded-1 text-white bg-opacity-75">$30</span></td>
+                        <td>20 min</td>
+                        <td>
+                            <select class="form-select form-select text-center" id="status">
+                                <option value="available" class="bg-white text-black">Available</option>
+                                <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                            </select>
+                        </td>
+                        <td><span class="btn-outline-secondary btn">Manage</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

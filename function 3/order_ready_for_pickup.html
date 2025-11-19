@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+<script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+<script src="function_3.js"></script>
+<link href="../index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- topbar d-flex align-items-centernavbar-expand-sm -->
+    <!-- <nav class="topbar orange shadow-sm navbar-dark fixed-top align-items-center navbar navbar-expand"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark orange shadow-sm fixed-top">
+            <div class="container-fluid">	<a class="navbar-brand" href="#"><img src="../img/icon.png" class="rounded-circle img-fluid"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="nav-link highlight" aria-current="page" href="restaurant.html">
+                            <span class="material-symbols-outlined">
+                                restaurant_menu
+                            </span>Manage Menu </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link active highlight" href="order_manage.html">
+                            <span class="material-symbols-outlined">
+                                forward
+                            </span>
+                            Manage Orders
+                            <span class="badge bg-danger me-1 bg-opacity-75">22</span></a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight" href="pendingError.html">
+                            <span class="material-symbols-outlined">
+                                contact_support
+                            </span>
+                            Handle Queries
+                            <span class="badge bg-danger me-1 bg-opacity-75">4</span></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-dark me-2 radius-30 px-4 highlight">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        
+    <div class="container">
+        <div class="wrapper border-1 rounded-1 bg-light p-3 border-dark">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="w-auto bg-white p-1 rounded-2 orders_list">Ready for Pickup Orders</h3>
+                <div class="btn-list d-flex align-items-center">
+                    <a href="order_record.html"><div class="btn btn-outline-primary">All Orders</div></a>
+                    <a href="order_manage.html"><div class="btn btn-primary ms-3">In Process Orders</div></a>
+                </div>
+            </div>
+            <table id="orders" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>order id</th>
+                        <th>item(s) details</th>
+                        <th>remarks</th>
+                        <th>finish prep time</th>
+                        <th>payment</th>
+                        <th>pickup person</th>
+                        <th>update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#110</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    <label for="110-1">- So Sweet Cake with Drink</label>
+                                </dt>
+                                <dd class="ms-4 mb-0">+ Mango</dd>
+                                <dd class="ms-4 mb-0">+ Milk Tea</dd>
+                            </dl>
+                            <hr>
+                            <dl>
+                                <dt>
+                                    <label for="110-2">- So Sweet Cupcake</label>
+                                </dt>
+                            </dl>
+                        </td>
+                        <td>-- null --</td>
+                        <td>
+                            <div class="shadow-sm time border-success rounded-2 p-1 ms-2">
+                                <span class="m-2 text-success">3 min ago</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="border-danger border bg-white text-danger rounded-1 p-1 mb-1">Unpaid(COD)</div>
+                            <div class="border bg-light rounded-1 p-1">total: $30</div>
+                        </td>
+                        <td>
+                            <div class="contact clearfix shadow-sm">
+                                <span class="float-start"><img src="../img/user.png" class="rounded-circle">
+                                    <span class="p-1 pe-0">Mr Lee</span></span>
+                                    <span class="material-symbols-outlined float-end me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-danger text-white shadow">Paid and Picked Up?</div></td>
+                    </tr>
+                    <tr>
+                        <td>#111</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    <label for="111-1">- Milk Tea with Pearl</label>
+                                </dt>
+                                <dd class="ms-4 mb-0">+ Milk Cap</dd>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="clearfix">
+                                <label for="r-111" class="">Less Ice<br>More Milk</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-success rounded-2 p-1 ms-2">
+                                <span class="m-2 text-success">13 min ago</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1">total: $30</span>
+                            <img src="../img/creditCard.jpg" alt="">
+                        </td>
+                        <td>
+                            <div class="contact clearfix shadow-sm">
+                                <span class="float-start"><img src="../img/head.jpg" class="rounded-circle">
+                                <span class="p-2 pe-1">John</span></span>
+                                <span class="material-symbols-outlined ms-1 float-end me-2">
+                                    chat
+                                </span>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-success text-white shadow-sm">Picked Up?</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

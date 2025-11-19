@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+<script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+<script src="function_3.js"></script>
+<link href="../index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- topbar d-flex align-items-centernavbar-expand-sm -->
+    <!-- <nav class="topbar orange shadow-sm navbar-dark fixed-top align-items-center navbar navbar-expand"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark orange shadow-sm fixed-top">
+            <div class="container-fluid">	<a class="navbar-brand" href="#"><img src="../img/icon.png" class="rounded-circle img-fluid"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="nav-link highlight" aria-current="page" href="restaurant.html">
+                            <span class="material-symbols-outlined">
+                                restaurant_menu
+                            </span>Manage Menu </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight" href="order_manage.html">
+                            <span class="material-symbols-outlined">
+                                forward
+                            </span>
+                            Manage Orders
+                            <span class="badge bg-danger me-1 bg-opacity-75">22</span></a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link active highlight" href="pendingError.html">
+                            <span class="material-symbols-outlined">
+                                contact_support
+                            </span>
+                            Handle Queries
+                            <span class="badge bg-danger me-1 bg-opacity-75">4</span></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-dark me-2 radius-30 px-4 highlight">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+    <div class="container">
+        <div class="wrapper ms-2">
+            <div class="p-3 border-0 rounded-2 bg-light">
+                <div class="row p-2 pt-0 pb-0">
+                    <div class="col-3 border shadow-sm customers rounded-1 bg-white p-0">
+        
+                        <div class="bg-primary-subtle float bg-white p-2 clearfix border-bottom">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <img src="../img/user.png" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="col-8">Mr Lee</h5>
+                            </div>
+                            <div class="row p-2 pt-0 float-end">
+                                <div class="xsmall-text text-secondary">01/12 12:00am</div>
+                            </div>
+                        </div>
+                        <div class="float bg-white p-2 clearfix border-bottom">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <img src="../img/user.png" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="col-8">Mr K</h5>
+                                <span class="badge bg-danger h-50 col-1">4</span>
+                            </div>
+                            <div class="row p-2 pt-0 float-end">
+                                <div class="xsmall-text text-secondary">01/12 12:00am</div>
+                            </div>
+                        </div>
+                        <div class="float bg-white p-2 clearfix border-bottom">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <img src="../img/head.jpg" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="col-8">John</h5>
+                                <span class="badge bg-danger h-50 col-1">2</span>
+                            </div>
+                            <div class="row p-2 pt-0 float-end">
+                                <div class="xsmall-text text-secondary">01/12 12:00am</div>
+                            </div>
+                        </div>
+                        <div class="float bg-white p-2 clearfix border-bottom">
+                            <div class="row p-2">
+                                <div class="col-2">
+                                    <img src="../img/user.png" class="img-fluid rounded-circle">
+                                </div>
+                                <h5 class="col-8">Miss L</h5>
+                                <span class="badge bg-danger h-50 col-1">1</span>
+                            </div>
+                            <div class="row p-2 pt-0 float-end">
+                                <div class="xsmall-text text-secondary">01/12 12:00am</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-6 chatbox p-3">
+                        <div class="w-100 border rounded-2 p-3 bg-white clearfix">
+                            
+                            <div class="row">
+                                <div class="col-auto">
+                                    <img src="../img/user.png" class="img-fluid rounded-circle">
+                                </div>
+                                <div class="col-auto clearfix">
+                                    <div class="rounded-4 bg-primary text-white p-2 float-start text-center">Hi</div>
+                                </div>
+                                <div class="xsmall-text text-secondary mt-2">Mr Lee, 01/12 12:00am</div>
+                            </div>
+
+                            <div class="row justify-content-end mt-2 mb-2">
+                                <div class="col-auto clearfix">
+                                    <div class="rounded-4 bg-white border border-primary text-primary p-2 float-start text-center">OK</div>
+                                </div>
+                            </div>
+                            <div class="xsmall-text text-secondary mb-2 float-end">Staff 01, 01/12 12:02am</div>
+
+                        </div>
+                        <div class="row p-2 mt-2">
+                            <div class="col-10">
+                                <div class="input-group">
+                                    <span class="input-group-text"><span class="material-symbols-outlined">sentiment_satisfied</span></span>
+                                    <input type="text" class="form-control" autofocus>
+                                </div>
+                            </div>
+                            <div class="col-2 mt-2">
+                                <div class="btn btn-outline-primary">Send</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 border shadow-sm orderDetail rounded-1 p-2 bg-white">
+                        <h5 class="mb-1">Query Order #011</h5>
+                        <div class="shoppingCart rounded-2 border p-1 pt-0">
+                            <div class="list-group">
+                                <li class="list-group-item float list-group-item-action">
+                                    <div class="clearfix">
+                                        <b class="float-start text-break w-75 normal-text">Homemade Fish Balls with Soup Noodle</b>
+                                        <p class="mb-0 float-end w-25"><img src="../img/Fish Balls with Noodle.jpg" alt="" class="border rounded-3 w-75"></p>
+                                    </div>
+                                    <div class="clearfix">
+                                        <p class="mb-0 float-start text-secondary small-text"> - Thick Noodles</p>
+                                        <p class="mb-0 float-end fw-bold text-secondary small-text">--</p>
+                                    </div>
+                                    <div class="clearfix">
+                                        <p class="mb-0 float-start text-secondary small-text"> - Milk Tea</p>
+                                        <p class="mb-0 float-end fw-bold text-secondary small-text">+$3</p>
+                                    </div>
+                                    <div class="clearfix mt-2 mb-0">
+                                        <p class="fw-bold float-start small-text mt-1">$22</p>
+                                        <div class="input-group input-spinner float-end w-25">
+                                            <input type="text" class="form-control border-start-0 border-end-0 bg-white" value="1" disabled>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item float list-group-item-action">
+                                    <div class="clearfix">
+                                        <b class="float-start text-break w-75 normal-text">Homemade Fish Balls with Soup Noodle</b>
+                                        <p class="mb-0 float-end w-25"><img src="../img/Fish Balls with Noodle.jpg" alt="" class="border rounded-3 w-75"></p>
+                                    </div>
+                                    <div class="clearfix">
+                                        <p class="mb-0 float-start text-secondary small-text"> - Thick Noodles</p>
+                                        <p class="mb-0 float-end fw-bold text-secondary small-text">--</p>
+                                    </div>
+                                    <div class="clearfix">
+                                        <p class="mb-0 float-start text-secondary small-text"> - Milk Tea</p>
+                                        <p class="mb-0 float-end fw-bold text-secondary small-text">+$3</p>
+                                    </div>
+                                    <div class="clearfix mt-2 mb-0">
+                                        <p class="fw-bold float-start small-text mt-1">$22</p>
+                                        <div class="input-group input-spinner float-end w-25">
+                                            <input type="text" class="form-control border-start-0 border-end-0 bg-white" value="1" disabled>
+                                        </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                        <div class="payment border rounded-2 mt-5">
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Status:</p>
+                                <p class="mb-0 float-end fw-bold text-secondary small-text">Out for Delivery</p>
+                            </div>
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Payment</p>
+                                <p class="mb-0 float-end fw-bold text-secondary small-text text-danger">Unpaid(Cash On Delivery)</p>
+                            </div>
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Total:</p>
+                                <p class="mb-0 float-end fw-bold text-secondary small-text">$54</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

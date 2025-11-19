@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+<script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+<script src="function_3.js"></script>
+<link href="../index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- topbar d-flex align-items-centernavbar-expand-sm -->
+    <!-- <nav class="topbar orange shadow-sm navbar-dark fixed-top align-items-center navbar navbar-expand"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark orange shadow-sm fixed-top">
+            <div class="container-fluid">	<a class="navbar-brand" href="#"><img src="../img/icon.png" class="rounded-circle img-fluid"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="nav-link highlight" aria-current="page" href="restaurant.html">
+                            <span class="material-symbols-outlined">
+                                restaurant_menu
+                            </span>Manage Menu </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight active " href="order_manage.html">
+                            <span class="material-symbols-outlined">
+                                forward
+                            </span>
+                            Manage Orders
+                            <span class="badge bg-danger me-1 bg-opacity-75">22</span></a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight" href="pendingError.html">
+                            <span class="material-symbols-outlined">
+                                contact_support
+                            </span>
+                            Handle Queries
+                            <span class="badge bg-danger me-1 bg-opacity-75">4</span></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-dark me-2 radius-30 px-4 highlight">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        
+    <div class="container">
+        <div class="wrapper border-1 rounded-1 bg-light p-3 border-dark">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="w-auto bg-white p-1 rounded-2 orders_list">All Orders</h3>
+                <div class="btn-list d-flex align-items-center">
+                    <a href="order_manage.html"><div class="btn btn-outline-primary">In Process Orders</div></a>
+                    <a href="order_ready_for_pickup.html"><div class="btn btn-primary ms-3">Ready for Pickup Orders</div></a>
+                </div>
+            </div>
+            <table id="orders" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>order id</th>
+                        <th>item(s) details</th>
+                        <th>created time</th>
+                        <th>payment</th>
+                        <th>customer</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#145</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    - So Sweet Cake with Drink
+                                </dt>
+                                <dd class="ms-4 mb-0">+ Mango</dd>
+                                <dd class="ms-4 mb-0">+ Milk Tea</dd>
+                            </dl>
+                            <hr>
+                            <dl>
+                                <dt>
+                                    - So Sweet Cupcake
+                                </dt>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-success rounded-2 p-1 ms-2">
+                                <span class="m-2 text-success">20/12/2024 21:52:22</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1 d-block">total: $102
+                            <img src="../img/alipay.jpg" alt="" class="ms-2"></span>
+                        </td>
+                        <td>
+                            <div class="contact float">
+                                <div class="clearfix d-flex align-items-center">
+                                    <div class="col float-start">
+                                        <img src="../img/user.png" class="rounded-circle me-1">
+                                        <span>Mr L</span>
+                                    </div>
+                                    <span class="material-symbols-outlined ms-1 float-end me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-success text-white">Out for Delivery</div></td>
+                    </tr>
+                    <tr>
+                        <td>#144</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    - Milk Tea with Pearl
+                                </dt>
+                                <dd class="ms-4 mb-0">+ Milk Cap</dd>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-success rounded-2 p-1 ms-2">
+                                <span class="m-2 text-success">20/12/2024 03:12:22</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1 d-block">total: $32
+                            <img src="../img/creditCard.jpg" alt="" class="ms-2"></span>
+                        </td>
+                        <td>
+                            <div class="contact float">
+                                <div class="clearfix d-flex align-items-center">
+                                    <div class="col float-start">
+                                    <img src="../img/user.png" class="rounded-circle me-1">
+                                        <span>Mr K</span>
+                                    </div>
+                                    <span class="material-symbols-outlined float-end ms-1 me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-success text-white">Completed</div></td>
+                    </tr>
+                    <tr>
+                        <td>#143</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    - Life Coffee
+                                    <dd class="ms-4 mb-0">+ No Milk</dd>
+                                </dt>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-danger rounded-2 p-1 ms-2">
+                                <span class="m-2 text-danger">20/12/2024 13:56:22</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1 d-block">total: $30
+                            <img src="../img/creditCard.jpg" alt="" class="ms-2"></span>
+                        </td>
+                        <td>
+                            <div class="contact float">
+                                <div class="clearfix d-flex align-items-center">
+                                    <div class="col float-start">
+                                    <img src="../img/user.png" class="rounded-circle me-1">
+                                        <span>Miss A</span>
+                                    </div>
+                                    <span class="material-symbols-outlined float-end ms-1 me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-danger text-white">Refund in Progress</div></td>
+                    </tr>
+                    <tr>
+                        <td>#142</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    - Life Juice
+                                    <dd class="ms-4 mb-0">+ orange</dd>
+                                </dt>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-warning rounded-2 p-1 ms-2">
+                                <span class="m-2 text-dark">21/12/2024 23:12:25</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1 d-block">total: $23
+                            <img src="../img/mastercard.jpg" alt="" class="ms-2"></span>
+                        </td>
+                        <td>
+                            <div class="contact float">
+                                <div class="clearfix d-flex align-items-center">
+                                    <div class="col float-start">
+                                    <img src="../img/user.png" class="rounded-circle me-1">
+                                        <span>Miss X</span>
+                                    </div>
+                                    <span class="material-symbols-outlined ms-1 float-end me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-warning text-dark">Refunded</div></td>
+                    </tr>
+                    <tr>
+                        <td>#141</td>
+                        <td>
+                            <dl>
+                                <dt class="text-break">
+                                    - Homemade Fish Balls with Soup Noodle
+                                    <dd class="ms-4 mb-0">+ cola</dd>
+                                </dt>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-warning rounded-2 p-1 ms-2">
+                                <span class="m-2 text-dark">20/12/2024 09:42:22</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1 d-block">total: $30
+                            <img src="../img/paypal.jpg" alt="" class="ms-2"></span>
+                        </td>
+                        <td>
+                            <div class="contact float">
+                                <div class="clearfix d-flex align-items-center">
+                                    <div class="col float-start">
+                                    <img src="../img/user.png" class="rounded-circle me-1">
+                                        <span>Mr V</span>
+                                    </div>
+                                    <span class="material-symbols-outlined ms-1 float-end me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-warning text-dark">Refunded</div></td>
+                    </tr>
+                    <tr>
+                        <td>#140</td>
+                        <td>
+                            <dl>
+                                <dt>
+                                    - Nice Breakfast
+                                </dt>
+                                    <dd class="ms-4 mb-0">+ fried egg</dd>
+                                    <dd class="ms-4 mb-0">+ coffee</dd>
+                            </dl>
+                        </td>
+                        <td>
+                            <div class="shadow-sm time border-warning rounded-2 p-1 ms-2">
+                                <span class="m-2 text-dark">20/12/2024 03:12:22</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="border bg-light rounded-1 p-1 d-block">total: $36
+                            <img src="../img/payme.jpg" alt="" class="ms-2"></span>
+                        </td>
+                        <td>
+                            <div class="contact float">
+                                <div class="clearfix d-flex align-items-center">
+                                    <div class="col float-start">
+                                    <img src="../img/user.png" class="rounded-circle me-1">
+                                        <span>Mr O</span>
+                                    </div>
+                                    <span class="material-symbols-outlined ms-1 float-end me-2">
+                                        chat
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><div class="btn ms-3 btn-warning text-dark">Cancelled</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

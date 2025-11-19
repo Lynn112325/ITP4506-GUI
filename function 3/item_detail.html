@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+<link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+<script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+<script src="function_3.js"></script>
+<link href="../index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- topbar d-flex align-items-centernavbar-expand-sm -->
+    <!-- <nav class="topbar orange shadow-sm navbar-dark fixed-top align-items-center navbar navbar-expand"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark orange shadow-sm fixed-top">
+            <div class="container-fluid">	<a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="nav-link active highlight" href="restaurant.html">
+                            <span class="material-symbols-outlined">
+                                arrow_back
+                            </span></a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+                    <div class="modal" id="addOption">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centric">
+                            <div class="modal-content">
+                        
+                                <div class="modal-header bg-light">
+                                    <b class="modal-title h3">Option 1 <span class="text-secondary"></span></b>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="border rounded-2 p-4 modal_detail shadow-sm bg-light mt-3" id="menu1">
+                                            <div class="">
+                                                <h4>basic settings</h4><hr class="text-primary">
+                                                <div class="clearfix d-flex align-items-center">
+                                                    <b class="float-start d-flex align-items-center">
+                                                        <h6 class="d-flex optionTitle pe-2 mt-2">
+                                                        Option title:</h6>
+                                                    </b>
+                                                    <input type="text" class="form-control mt-1 float-end" placeholder="Set - Noodles Base, Flavor options?...">
+                                                </div><hr class="text-primary">
+                                                <h6 class="pt-1 me-1">
+                                                    Is this option required to select?
+                                                </h6>
+                                                <div class="form-check form-switch row mt-0">
+                                                    <div class="col-auto mt-3">
+                                                        <input class="form-check-input" type="checkbox" id="necessity" name="necessity" value="Required" checked>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label class="form-check-label small-text border-success text-success border bg-white rounded-2 justify-content-center d-flex p-1 ms-5" for="necessity">Required</label>
+                                                    </div>
+                                                </div><hr class="text-primary">
+                                                <div class="d-flex align-items-center mt-2">
+                                                    <div class="pe-2 mt-1">
+                                                        <h6>customer can select up to</h6>
+                                                    </div>
+                                                    <input type="number" class="form-control selectNum m-0 p-1" min="1" placeholder="max num?">
+                                                    <h6 class="ms-2 mt-1">options</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="border rounded-2 p-4 modal_detail shadow-sm bg-light mt-3" id="menu2">
+                                            <div class="clearfix">
+                                                <h4 class="float-start">option content</h4>
+                                                <label class="form-check-label small-text w-25 float-end border-success text-success border bg-white rounded-2 justify-content-center d-flex p-1 ms-5" for="necessity">Required</label>
+
+                                            </div>
+                                            <hr class="text-primary">
+                                            <div class="options">
+
+                                                <div class="clearfix option mb-2">
+                                                    <input type="radio" class="disabled" name="option">
+                                                    <label for="option"><input type="text" class="form-control p-1 ms-2">
+                                                    </label>
+                                                    <span class="ms-5 text-secondary small-text">+$</span><input type="number" name="" id="addPrice" class="float-end form-control p-1" min="0" value="0">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                    <div class="btn btn-outline-danger p-1" id="add">Add</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="modal-footer clearfix bg-light nav-item">
+                                    <div type="button" class="btn btn-success float-start shadow-sm ms-3" id="back">Back</div>
+                                    <div type="button" class="btn btn-outline-success float-end shadow-sm me-3" id="next">Next</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+    <div class="container">
+        <div class="wrapper row mt-2">
+            <div class="card ms-5 shadow">
+                <div class="clearfix">
+                    <span class="ms-2 h3 float-start">Add Item: <span class="h5 itemTitle text-secondary"></span></span>
+                    <div class="me-2 float-end">
+                        <a href="restaurant.html"><div class="btn btn-outline-success" id="finish">Finish</div></a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row addItem">
+                    <div class="col-md-4 mt-2">
+                        <div class="item shadow-sm">
+                            <div class="row ps-2">
+                                <div class="col-8 ps-1">
+                                    Item Title: <br>
+                                    <input type="text" class="form-control itemName">
+                                </div>
+                                <div class="col-4">
+                                    Price: <br>
+                                    <input type="number" class="form-control" min="0">
+                                </div>
+                            </div>
+                            <div class="drag-area mb-2">
+                                <div class="justify-content-center d-flex align-items-center m-2">Drag & Drop to Upload File</div>
+                                <div class="icon justify-content-center d-flex align-items-center">
+                                    <span class="material-symbols-outlined m-2">cloud_upload</span>
+                                </div>
+                                <span class="justify-content-center d-flex align-items-center m-2">OR</span>
+                                <div class="justify-content-center d-flex align-items-center btn btn-warning m-5 mb-1 mt-2 text-white">Browse File</div>
+                                <input type="file" hidden>
+                            </div>
+                            Description: <br>
+                            <textarea name="" id="" class="form-control" cols="30" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-2 me-0">
+                        <div class="itemDetail shadow-sm">
+                            <div class="row">
+                                <div class="col me-2 ps-4"> Status: <br>
+                                    <select class="form-select text-center" id="status">
+                                        <option value="available" class="bg-white text-black">Available</option>
+                                        <option value="unavailable" class="bg-white text-black">Unavailable</option>
+                                        <option value="soldOut" class="bg-white text-black">Sold Out</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col mt-3 ps-3"> Prepare Time? <br>
+                                <div class="clearfix">
+                                <input type="number" class="form-control w-75 float-start" id="num">
+                                <label class="me-4 float-end mt-3" for="num">min</label></div>
+                            </div>
+                            <hr>
+                            <div class="col">
+                                <div class="ps-3 tag border-0">
+                                    <label for="type" class="form-label mb-1">Item Tags: </label>
+                                        <input class="form-control" list="type" name="type" id="types">
+                                        <datalist id="type">
+                                            <option value="Dessert">
+                                            <option value="Fast Food">
+                                            <option value="Noodles">
+                                            <option value="Rice">
+                                            <option value="Drinks">
+                                            <option value="Healthy">
+                                        </datalist>
+                                    <div class="m-2 ms-0">
+                                        <div class="row justify-content-start">
+                                            <div class="col-auto m-1">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-2 me-0 addOption">
+                        <div class="itemDetail shadow-sm p-3">
+                            Option(s) of item
+                            <div class="itemOption pt-2">
+                                
+                            </div>
+                            <div class="clearfix">
+                                <div class="btn btn-warning ms-3 pt-1 pb-1 shadow-sm float-end" data-bs-toggle="modal" data-bs-target="#addOption" id="add">Add Option</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

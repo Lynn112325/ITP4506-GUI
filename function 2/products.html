@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index</title>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+<script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="index.js"></script>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <!-- topbar d-flex align-items-centernavbar-expand-sm -->
+    <!-- <nav class="topbar orange shadow-sm navbar-dark fixed-top align-items-center navbar navbar-expand"> -->
+        <nav class="navbar navbar-expand-lg navbar-dark orange shadow-sm fixed-top">
+            <div class="container-fluid">	<a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"> <a class="nav-link highlight" href="index.html">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>Home </a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link active highlight" aria-current="page" href="products.html">
+                            <span class="material-symbols-outlined">
+                                forward
+                            </span>
+                        Order Now</a>
+                        </li>
+                        <li class="nav-item"> <a class="nav-link highlight" href="orderRecord.html">
+                            <span class="material-symbols-outlined">
+                                shopping_bag
+                            </span>
+                        Order Records</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-light me-2 radius-30 px-4 highlight">Register
+
+                        </button>
+                        <button class="btn btn-dark me-2 radius-30 px-4 highlight">
+                            Login
+                        </button>
+                        <a class="btn btn-light radius-30 px-4 highlight" id="openCart" data-bs-toggle="offcanvas" href="#cart">
+                            <span class="material-symbols-outlined">
+                                shopping_cart
+                            </span>
+                            Cart<span class="badge bg-danger">0</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-start" id="cart">
+            <div class="offcanvas-header">
+                <h4 class="offcanvas-title">Your order from<br><span class="medium">- Yummy Restaurant</span></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="shoppingCart rounded-2">
+                    <div class="list-group">
+
+                    </div>
+                </div>
+                <div class="shoppingCart2">
+                    <div class="clearfix" id="plastic">
+                        <div class="float-start">
+                            <div>Do you need cutlery and/or straws?</div>
+                            <span class="text-secondary">No. Thank you for helping us reduce plastic waste.</span>
+                        </div>
+                        <div class="form-check form-switch float-end">
+                            <input class="form-check-input" type="checkbox" id="mySwitch1" name="plastic" value="no">
+                        </div>
+                    </div>
+                        <div class="payment border rounded-2">
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Subtotal:</p>
+                                <p class="mb-0 float-end fw-bold text-secondary small">$<span class="text-secondary small" id="total"></span></p>
+                            </div>
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Delivery fee:</p>
+                                <p class="mb-0 float-end fw-bold text-secondary small">$<span class="text-secondary deliveryFee">10</span></p>
+                            </div>
+                            <div class="clearfix">
+                                <p class="mb-0 float-start">Total:</p>
+                                <p class="mb-0 float-end fw-bold text-secondary small">$<span class="text-secondary small" id="Total"></span></p>
+                            </div>
+                        </div>
+                        <div class="form-check form-switch">
+                            <b>Delivery</b>
+                            <input class="form-check-input" type="checkbox" id="mySwitch2" name="Delivery" value="yes" checked>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-outline-success fixed-bottom" type="button" id="checkOut" data-bs-toggle="modal" data-bs-target="#check"><b>Check Out</b></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="wrapper">
+
+
+                <div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col-lg-3 col-xl-4">
+										<div><span id="findFoodType" class="small fw-bold"></span>
+                                            <span id="findSort" class="small fw-bold"></span></div>
+									</div>
+									<div class="col-lg-9 col-xl-8">
+										<form class="float-lg-end">
+											<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-auto g-2">
+												
+												<div class="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="set" name="option1" value="set">
+                                                        <label class="form-check-label" for="set">Set</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+													<div class="position-relative">
+														<input type="text" class="form-control ps-5" placeholder="Search by product info" id="search" autofocus> <span class="position-absolute top-50 product-show translate-middle-y"><i class="bx bx-search"></i></span>
+													</div>
+												</div>
+												<div class="col">
+													<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+														<button type="button" class="btn btn-white">Sort By</button>
+														<div class="btn-group" role="group">
+                                                            <button id="btnGroupDrop1" type="button" class="btn btn-white dropdown-toggle-nocaret rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class='bx bx-chevron-down'></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="fastest">
+                                                                        <span class="float-start">Fastest Delivery</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            local_shipping
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="highest">
+                                                                        <span class="float-start">Highest Rated</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            star
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                                            <button type="button" class="btn btn-white">Food Type</button>
+                                                            <div class="btn-group" role="group">
+                                                            <button id="btnGroupDrop1" type="button" class="btn btn-white dropdown-toggle-nocaret rounded-end" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class='bx bxs-category'></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="fastFood">
+                                                                        <span class="float-start">Fast food</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            lunch_dining
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="noodles">
+                                                                        <span class="float-start">Noodles</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            ramen_dining
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="rice">
+                                                                        <span class="float-start">Rice</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            rice_bowl
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="drink">
+                                                                        <span class="float-start">Drinks</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            local_bar
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="dessert">
+                                                                        <span class="float-start">Dessert</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            cookie
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item clearfix" href="#" id="healthy">
+                                                                        <span class="float-start">Healthy</span>
+                                                                        <span class="material-symbols-outlined float-end">
+                                                                            Psychiatry
+                                                                        </span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <button id="reset" class="btn btn-warning">Reset</button>
+                                                    </div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+
+                    <div class="modal" id="FishBallswithNoodle">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centric">
+                            <div class="modal-content">
+                        
+                                <div class="modal-header">
+                                    <div class="clearfix">
+                                        <b class="float-start text-break modal-title"><h3>Homemade Fish Balls with Soup Noodle</h3>
+                                            <h6 class="text-secondary fw-bold">$<span class="text-secondary" id="price">41</span>
+                                            </span></h6></b>
+                                        <p class="mb-0 float-end"><img src="img/Fish Balls with Noodle.jpg" alt="" class="border rounded-3"></p>
+                                    </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <div class="select border rounded-2">
+                                        <div class="clearfix">
+                                            <b class="float-start text-break"><h5 class="d-flex">Set - Noodles Base</h5></b>
+                                            <p class="mb-0 float-end"><b class="d-flex border rounded-3 bg-danger text-white">Required</b></p>
+                                        </div>
+                                        <span class="text-secondary">Select 1</span>
+                                        <div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio1" name="optradio1" value="option1">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio1">
+                                                        <p class="mb-0 float-start small">Thick Noodles</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio2" name="optradio1" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio2">
+                                                        <p class="mb-0 float-start small">Thin Noodles</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3" name="optradio1" value="option3">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3">
+                                                        <p class="mb-0 float-start small">Super Noodles</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">6</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="select border rounded-2">
+                                        <div class="clearfix">
+                                            <b class="float-start text-break"><h5 class="d-flex">Set - Snack</h5></b>
+                                            <p class="mb-0 float-end"><b class="d-flex border rounded-3 bg-light">Optional</b></p>
+                                        </div>
+                                        <span class="text-secondary">Select up to 3 (optional)</span>
+                                        <div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox2-1" name="optradio3" value="option1">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="checkbox2-1">
+                                                        <p class="mb-0 float-start small">Deep-fried Dough Stick</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">10</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox2-2" name="optradio3" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="checkbox2-2">
+                                                        <p class="mb-0 float-start small">Wontons (8 pcs)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">20</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox2-3" name="optradio3" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="checkbox2-3">
+                                                        <p class="mb-0 float-start small">Pork Balls (3 pcs)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">20</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox2-4" name="optradio4" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="checkbox2-4">
+                                                        <p class="mb-0 float-start small">Fish Dumplings</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">20</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox2-5" name="optradio4" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="checkbox2-5">
+                                                        <p class="mb-0 float-start small">Spicy Buffalo Chicken Wings (3 pcs)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">25</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="select border rounded-2">
+                                        <div class="clearfix">
+                                            <b class="float-start text-break"><h5 class="d-flex">Set - Drink</h5></b>
+                                            <p class="mb-0 float-end"><b class="d-flex border rounded-3 bg-danger text-white">Required</b></p>
+                                        </div>
+                                        <span class="text-secondary">Select 1</span>
+                                        <div class="content">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3-1" name="optradio2" value="option1">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3-1">
+                                                        <p class="mb-0 float-start small">Milk Tea (hot)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3-2" name="optradio2" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3-2">
+                                                        <p class="mb-0 float-start small">Cola</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3-3" name="optradio2" value="option3">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3-3">
+                                                        <p class="mb-0 float-start small">Coffee (hot)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3-4" name="optradio2" value="option4">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3-4">
+                                                        <p class="mb-0 float-start small">Lemon Tea (hot)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3-5" name="optradio2" value="option5">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3-5">
+                                                        <p class="mb-0 float-start small">Coffee (ice)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">3</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="radio3-6" name="optradio2" value="option6">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="radio3-6">
+                                                        <p class="mb-0 float-start small">Lemon Tea (ice)</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">5</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="other border rounded-2">
+                                        <div class="clearfix">
+                                            <b class="float-start text-break"><h5 class="d-flex">Special instructions</h5></b>
+                                            <p class="mb-0 float-end"><b class="d-flex border rounded-3 bg-light text-dark">optional</b></p>
+                                        </div>
+                                        <span class="text-secondary">Restaurants will attempt to fulfil your requests, 
+                                            but reserves the final right to adhere to any requirements based on actual operations.
+                                        </span>
+                                        <textarea placeholder="e.g. less rice, less ice" class="Special" rows="40"></textarea>
+                                    </div>
+                                </div>
+                        
+                                <div class="modal-footer clearfix">
+                                        <span class="float-start"><h5 id="total" class="float-start">Price: $41</h5></span>
+                                        <div class="input-group input-spinner float-start">
+                                            <button class="btn btn-white border" type="button" id="button-plus"> + </button>
+                                            <input type="text" class="form-control border-start-0 border-end-0" value="1">
+                                            <button class="btn btn-white border disabled" type="button" id="button-minus"> - </button>
+                                        </div>
+                                        <button type="button" class="btn btn-light float-end shadow-sm" id="favorites">Add to favorites
+                                            <span class="me-2 material-symbols-outlined like">
+                                                Favorite
+                                            </span>
+                                        </button>
+                                        <button type="button" class="btn btn-danger float-end shadow-sm" id="addCart">Add To Cart
+                                            <span class="me-2 material-symbols-outlined">
+                                                shopping_cart
+                                            </span>
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="check">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centric">
+                            <div class="modal-content">
+                        
+                                <div class="modal-header bg-light">
+                                    <b class="text-break modal-title">Check Out</b>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    
+                                    <div class="card border-primary" id="success">
+                                        <span class="pt-2 text-center"><h4>Your Order Has Been Received!</h4></span>
+                                        <div class="text-center success p-5"><img src="img/sucess.png" alt=""></div>
+                                        <div class="text-center">
+                                            <h5>
+                                                Estimated Delivery Time:
+                                            </h5><br>
+                                            <h3 class="text-success">
+                                                30 min
+                                            </h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="card setAddress border-primary">
+                                        <label for="address" class="form-label card-title">Confirm address:
+                                        </label>
+                                        <input class="form-control" list="addresses" name="address" id="address">
+                                        <datalist id="addresses">
+                                            <option value="20 Tsing Yi Road, Tsing Yi Island, New Territories">
+                                            <option value="22 Tsing Yi Road, Tsing Yi Island, New Territories">
+                                            <option value="24 Tsing Yi Road, Tsing Yi Island, New Territories">
+                                            <option value="26 Tsing Yi Road, Tsing Yi Island, New Territories">
+                                        </datalist>
+                                        <span class="pt-2">Previously used addresses:</span>
+                                        <div class="row space p-2">
+                                                <div class="list-group">
+                                                    <li class="list-group-item float list-group-item-action">20 Tsing Yi Road, <br>Tsing Yi Island, <br>New Territories
+                                                    </li>
+                                                    <li class="list-group-item float list-group-item-action">22 Tsing Yi Road, <br>Tsing Yi Island, <br>New Territories
+                                                    </li>
+                                                    <li class="list-group-item float list-group-item-action">24 Tsing Yi Road, <br>Tsing Yi Island, <br>New Territories
+                                                    </li>
+                                                    <li class="list-group-item float list-group-item-action">26 Tsing Yi Road, <br>Tsing Yi Island, <br>New Territories
+                                                    </li>
+                                                </div>
+                                        </div>
+                                        <a href="#payWith"><button type="button" class="btn btn-danger float-end shadow-sm m-2" id="Confirm">Confirm
+                                        </button></a>
+                                    </div>
+
+                                    <div class="card border-primary" id="payWith">
+                                        <div class="card-title">Finish Payment:</div>
+                                        <div class="clearfix p-2">
+                                            <span class="float-start">Total:</span>
+                                            <span class="float-end text-secondary" id="payTotal"></span>
+                                        </div>
+                                        <hr>
+                                        <h6 class="p-2">Pay with:</h6>
+                                        <div class="list-group">
+                                            <a href="#payMethod"><li class="list-group-item float list-group-item-action clearfix">
+                                                cash on delivery <span class="float-end">
+                                                    <img src="img/cod.jpg" alt="">&nbsp;►
+                                                </span></a>
+                                            </li>
+                                            <a href="#cardType"><li class="list-group-item float list-group-item-action clearfix">
+                                                Credit Card <span class="float-end">
+                                                    <img src="img/creditCard.jpg" alt="">&nbsp;►
+                                                </span>
+                                            </li></a>
+                                            <li class="list-group-item float list-group-item-action clearfix">
+                                                Alipay <span class="float-end">
+                                                    <img src="img/alipay.jpg" alt="">&nbsp;►
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item float list-group-item-action clearfix">
+                                                PayMe <span class="float-end">
+                                                        <img src="img/payme.jpg" alt="">&nbsp;►
+                                                    </span>
+                                            </li>
+                                            <li class="list-group-item float list-group-item-action clearfix">
+                                                Paypal <span class="float-end">
+                                                    <img src="img/paypal.jpg" alt="">►
+                                                </span>
+                                            </li>
+                                        </div>
+                                        <div id="cardType">
+                                        <h6 class="p-2">Card Type:</h6>
+                                            <div class="list-group">
+                                                <li class="list-group-item float list-group-item-action clearfix">
+                                                    VISA <img src="img/visa.jpg" alt="">
+                                                </li>
+                                                <li class="list-group-item float list-group-item-action clearfix">
+                                                    Master Card <img src="img/mastercard.jpg" alt="">
+                                                </li>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix p-2">
+                                            <span class="float-start">Pay With:</span>
+                                            <span class="float-end text-secondary" id="payMethod"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="modal-footer clearfix bg-light">
+                                    <button type="button" class="btn btn-danger float-end shadow-sm" id="finish">Finish
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="lifeJuice">
+                        <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centric">
+                            <div class="modal-content">
+                        
+                                <div class="modal-header">
+                                    <div class="clearfix">
+                                        <b class="float-start text-break modal-title"><h3>Life Juice</h3>
+                                            <h6 class="text-secondary fw-bold">$<span class="text-secondary" id="price">20</span>
+                                            </span></h6></b>
+                                        <p class="mb-0 float-end"><img src="img/juice.jpg" alt="" class="border rounded-3"></p>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <div class="select border rounded-2">
+                                        <div class="clearfix">
+                                            <b class="float-start text-break"><h5 class="d-flex">Flavor options</h5></b>
+                                            <p class="mb-0 float-end"><b class="d-flex border rounded-3 bg-danger text-white">Required</b></p>
+                                        </div>
+                                        <span class="text-secondary">Select 1</span>
+                                        <div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="juice1" name="optradio1" value="option1">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice1">
+                                                        <p class="mb-0 float-start small">Apple</p>
+                                                    </label>
+                                                    <!-- <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="juice2" name="optradio1" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2">
+                                                        <p class="mb-0 float-start small">Orange</p>
+                                                    </label>
+                                                    <!-- <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            free
+                                                        </span>
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="juice3" name="optradio1" value="option3">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice3">
+                                                        <p class="mb-0 float-start small">Pear</p>
+                                                    </label>
+                                                    <!-- <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">6</span>
+                                                        </span>
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="juice4" name="optradio1" value="option4">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice4">
+                                                        <p class="mb-0 float-start small">Mango</p>
+                                                    </label>
+                                                    <!-- <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">6</span>
+                                                        </span>
+                                                    </p> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="select border rounded-2">
+                                        <div class="clearfix">
+                                            <b class="float-start text-break"><h5 class="d-flex">Mixed flavors?</h5></b>
+                                            <p class="mb-0 float-end"><b class="d-flex border rounded-3 bg-light">Optional</b></p>
+                                        </div>
+                                        <span class="text-secondary">Select up to 3 (optional)</span>
+                                        <div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="juice2-1" name="optradio3" value="option1">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2-1">
+                                                        <p class="mb-0 float-start small">Apple</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">5</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="juice2-2" name="optradio3" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2-2">
+                                                        <p class="mb-0 float-start small">Orange</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">5</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="juice2-3" name="optradio3" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2-3">
+                                                        <p class="mb-0 float-start small">Pear</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">5</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="juice2-4" name="optradio4" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2-4">
+                                                        <p class="mb-0 float-start small">Mango</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">5</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="juice2-5" name="optradio5" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2-5">
+                                                        <p class="mb-0 float-start small">Strawberry</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">6</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="juice2-6" name="optradio6" value="option2">
+                                                <div class="clearfix">
+                                                    <label class="form-check-label" for="juice2-6">
+                                                        <p class="mb-0 float-start small">Watermelon</p>
+                                                    </label>
+                                                    <p class="mb-0 float-end fw-bold">
+                                                        <span class="me-2 text-secondary border rounded-3 bg-light">
+                                                            +$<span class="text-secondary">6</span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div class="modal-footer clearfix">
+                                    <span class="float-start"><h5 id="total" class="float-start">Price: $20</h5></span>
+                                    <div class="input-group input-spinner float-start">
+                                        <button class="btn btn-white border" type="button" id="button-plus"> + </button>
+                                        <input type="text" class="form-control border-start-0 border-end-0" value="1">
+                                        <button class="btn btn-white border disabled" type="button" id="button-minus"> - </button>
+                                    </div>
+                                <button type="button" class="btn btn-light float-end shadow-sm" id="favorites">Add to favorites
+                                    <span class="me-2 material-symbols-outlined like">
+                                        Favorite
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-danger float-end shadow-sm" id="addCart">Add To Cart
+                                    <span class="me-2 material-symbols-outlined">
+                                        shopping_cart
+                                    </span>
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 product-grid">
+                    <div class="col Set noodle health">
+                        <div class="card float" data-bs-toggle="modal" data-bs-target="#FishBallswithNoodle">
+                            <img src="img/Fish Balls with Noodle.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="">
+								<div class="position-absolute top-0 end-0 m-3 p-2 border rounded-circle bg-warning shadow-sm set"><span class="">Set</span></div>
+							</div>
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Homemade Fish Balls with Soup Noodle</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.6(882)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">35</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">41</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col drink health">
+                        <div class="card float" data-bs-toggle="modal" data-bs-target="#lifeJuice">
+                            <img src="img/juice.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Life Juice</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.2(193)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">20</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">20</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col health Set">
+                        <div class="card float">
+                            <img src="img/breakfast.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="">
+								<div class="position-absolute top-0 end-0 m-3 p-2 border rounded-circle bg-warning shadow-sm set"><span class="">Set</span></div>
+							</div>
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Nice Breakfast</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.2(182)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">35</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">35</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col drink">
+                        <div class="card float">
+                            <img src="img/drink.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Good Drink</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>
+                                    <p class="mb-0 ms-auto text-secondary">4.4(782)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">15</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">20</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col rice">
+                        <div class="card float">
+                            <img src="img/friedRice.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">FriedRice</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">3.4(582)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">25</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">30</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col rice Set">
+                        <div class="card float">
+                            <img src="img/Deep-fried Chicken Leg with Rice.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="">
+								<div class="position-absolute top-0 end-0 m-3 p-2 border rounded-circle bg-warning shadow-sm set"><span class="">Set</span></div>
+							</div>
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Deep-fried Chicken Leg with Rice</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.4(782)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">30</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">45</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col dessert Set">
+                        <div class="card float">
+                            <img src="img/cake.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="">
+								<div class="position-absolute top-0 end-0 m-3 p-2 border rounded-circle bg-warning shadow-sm set"><span class="">Set</span></div>
+							</div>
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">So Sweet Cake with Drink</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.2(293)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">40</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">55</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col fastFood">
+                        <div class="card float">
+                            <img src="img/Spicy Chicken Wings.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Spicy Chicken Wings</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.3(495)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">20</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">35</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col dessert">
+                        <div class="card float">
+                            <img src="img/sweet.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">So Sweet Cupcake</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.7(892)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">20</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">30</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col drink">
+                        <div class="card float">
+                            <img src="img/Milk Tea with Pearl.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Milk Tea with Pearl</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                    </div>
+                                    <p class="mb-0 ms-auto text-secondary">4.9(1032)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">25</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">27</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col fastFood Set">
+                        <div class="card float">
+                            <img src="img/fastFood.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="">
+								<div class="position-absolute top-0 end-0 m-3 p-2 border rounded-circle bg-warning shadow-sm set"><span class="">Set</span></div>
+							</div>
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Fast food Burger</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.2(193)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">20</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">35</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col drink health">
+                        <div class="card float">
+                            <img src="img/coffee.jpg" class="card-img-top mb-1" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title cursor-pointer">Life Coffee</h6>
+                                <div class="d-flex align-items-center mt-3 fs-6 mb-1">
+                                    <div class="cursor-pointer">
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-warning'></i>
+                                        <i class='bx bxs-star text-secondary'></i>
+                                    </div>	
+                                    <p class="mb-0 ms-auto text-secondary">4.1(223)</p>
+                                </div>
+                                <div class="clearfix">
+                                    <p class="mb-0 float-start bg-light border rounded-3"><span class="me-2 time">20</span>min</p>
+                                    <p class="mb-0 float-end p-1">$<span class="price">30</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
